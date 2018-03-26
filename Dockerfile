@@ -47,3 +47,6 @@ RUN pip3 --no-cache-dir install --no-dependencies git+https://github.com/fcholle
 RUN python3 -c "import tensorflow; print(tensorflow.__version__)" \
  && dpkg-query -l > /dpkg-query-l.txt \
  && pip3 freeze > /pip3-freeze.txt
+COPY . /app
+WORKDIR /app
+CMD ["python3", "helloworld.py"]
